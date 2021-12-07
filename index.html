@@ -29,13 +29,6 @@
             }
         }
 
-        const computerSelection = computerPlay();
-
-        console.log(computerSelection);
-        
-        // prompt user for entry
-        const playerSelection = prompt("I would like to play rock, paper, scissors? Please type your choice.")
-
         // function to compare user entry to computer answer
         // report winner
         function playRound(playerSelection,computerSelection){
@@ -44,15 +37,61 @@
             (playerEntry === 'scissors' && computerSelection === 'paper')||
             (playerEntry === 'paper' && computerSelection === 'rock')) {
                 console.log("You Win! " + playerEntry + " beats " + computerSelection + "!")
+                return 'You win';
             } else if (playerEntry === computerSelection){
                 console.log("Its a draw!")
+                return 'A draw';
             } else {
                 console.log("You Lose! " + computerSelection + " beats " + playerEntry + "!")
+                return 'My win';
             }
         }
-        
-        playRound(playerSelection, computerSelection);
-        
+         
+        function game(){
+
+            let playerwins = 0;
+            let computerwins = 0;
+            let draws = 0;
+
+            alert("I would like to play rock, paper, scissors. Best out of 5?");
+
+            for (let i = 1; i <= 5; i++) {
+                const computerSelection = computerPlay();
+                
+                // prompt user for entry
+                const playerSelection = prompt("Round " + i + " of 5, please type your choice.")
+                let winner = playRound(playerSelection, computerSelection);
+
+                if (winner === 'You win') {
+                    playerwins = playerwins + 1;
+                } else if (winner === 'My win') {
+                    computerwins = computerwins + 1;
+                } else {
+                    draws = draws + 1;
+                }
+
+                if (i < 5) {
+                    alert(winner + "!" + ' Lets play again!');
+                } else {
+                    continue;
+                }
+                    
+                console.log('Player has won ' + playerwins + ' times!');
+                console.log('Computer has won ' + computerwins + ' times!');
+                console.log('Its been a draw ' + draws + ' times!');
+            }
+
+            if (playerwins > computerwins) {
+                alert("Looks like you win this time!")
+            } else if (computerwins > playerwins) {
+                alert("Puny mortal, your loss was unavoidable!")
+            } else {
+                alert("It seems we are evenly matched...you are a worthy opponent indeed!")
+            }
+            
+        }
+
+        game();
         // prompt user to play again
     </script>
 
