@@ -15,7 +15,25 @@
 
     <script>
         // Generate random number
-        // Turn random number into rock / paper / scissor
+        function computerPlay() {
+            cpnumber = Math.floor(Math.random()*3);
+            console.log(cpnumber);
+            // Turn random number into rock / paper / scissor
+            // Log computer entry
+            if (cpnumber === 0) {
+                cphand = "rock";
+                console.log(cphand);
+            } else if (cpnumber === 1) {
+                cphand = "paper";
+                console.log(cphand);
+            } else {
+                cphand = "scissors";
+                console.log(cphand);
+            }
+        }
+
+        computerPlay();
+
         // prompt user for entry
         // compare to computer answer
         // report winner
