@@ -21,24 +21,39 @@
             // Turn random number into rock / paper / scissor
             // Log computer entry
             if (cpnumber === 0) {
-                cphand = "rock";
-                console.log(cphand);
+                return cphand = "rock";
             } else if (cpnumber === 1) {
-                cphand = "paper";
-                console.log(cphand);
+                return cphand = "paper";
             } else {
-                cphand = "scissors";
-                console.log(cphand);
+                return cphand = "scissors";
             }
         }
 
-        computerPlay();
+        const computerSelection = computerPlay();
 
+        console.log(computerSelection);
+        
         // prompt user for entry
-        // compare to computer answer
+        const playerSelection = prompt("I would like to play rock, paper, scissors? Please type your choice.")
+
+        // function to compare user entry to computer answer
         // report winner
+        function playRound(playerSelection,computerSelection){
+            const playerEntry = playerSelection.toLowerCase();
+            if ((playerEntry === 'rock' && computerSelection === 'scissors') ||
+            (playerEntry === 'scissors' && computerSelection === 'paper')||
+            (playerEntry === 'paper' && computerSelection === 'rock')) {
+                console.log("You Win! " + playerEntry + " beats " + computerSelection + "!")
+            } else if (playerEntry === computerSelection){
+                console.log("Its a draw!")
+            } else {
+                console.log("You Lose! " + computerSelection + " beats " + playerEntry + "!")
+            }
+        }
+        
+        playRound(playerSelection, computerSelection);
+        
         // prompt user to play again
-        // clear random number
     </script>
 
 </html>
