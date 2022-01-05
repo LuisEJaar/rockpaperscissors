@@ -16,19 +16,21 @@
         <!--Overall box-->
         <div class="gameContainer">       
             <!--Title box-->
-            <div class="titleBox">Lets play a game</div>
+            <div class="titleBox">You dare challenge me?</div>
             <!--Score Box-->
             <div class="scoreBox">
                 <!--LH Score: Player-->
                 <div class="playerScore">
-                    Player Score: 
                     <p id="playerWins"></p>
                 </div>
                 <!--RH Score: Computer-->
                 <div class="cpScore">
-                    Computer Score:
                     <p id="computerWins"></p>
                 </div>
+            </div>
+            <div class="messageBox">
+                <p id="message"></p>
+                <p id="victor"></p>
             </div>
             <!--Choice Box-->
             <div class="choices">
@@ -71,20 +73,25 @@
             if ((playerEntry === 'rock' && computerSelection === 'scissors') ||
             (playerEntry === 'scissors' && computerSelection === 'paper')||
             (playerEntry === 'paper' && computerSelection === 'rock')) {
+                document.getElementById("message").innerHTML = "You Win! " + playerEntry + " beats " + computerSelection + "!";
                 console.log("You Win! " + playerEntry + " beats " + computerSelection + "!")
                 return 'You win';
             } else if (playerEntry === computerSelection){
+                document.getElementById("message").innerHTML = "Its a draw!";
                 console.log("Its a draw!")
                 return 'A draw';
             } else {
+                document.getElementById("message").innerHTML = "You Lose! " + computerSelection + " beats " + playerEntry + "!";
                 console.log("You Lose! " + computerSelection + " beats " + playerEntry + "!")
                 return 'My win';
             }
         }
          
         function game(){
-            document.getElementById("playerWins").innerHTML = 0;
-            document.getElementById("computerWins").innerHTML = 0;
+            document.getElementById("playerWins").innerHTML = `Player Score: 0`;
+            document.getElementById("computerWins").innerHTML = `Computer Score: 0`;
+            document.getElementById("message").innerHTML = `Choose wisely human!`;
+            document.getElementById("victor").innerHTML = `Our battle is yet decided!`;
 
             let playerWins = 0;
             let computerWins = 0;
@@ -112,14 +119,14 @@
                         draws = draws + 1;
                     }
 
-                    document.getElementById("playerWins").innerHTML = playerWins;
-                    document.getElementById("computerWins").innerHTML = computerWins;
+                    document.getElementById("playerWins").innerHTML = `Player Score: ${playerWins}`;
+                    document.getElementById("computerWins").innerHTML = `Computer Score: ${computerWins}`;
                     
                     if (playerWins >= 5 || computerWins >= 5){      
                         if (playerWins > computerWins) {
-                            alert("Looks like you win this time!")
+                            document.getElementById("victor").innerHTML = `You've won the battle, but the war is mine!`;
                         } else {
-                            alert("Puny mortal, your loss was unavoidable!")
+                            document.getElementById("victor").innerHTML = `Puny mortal, your loss was unavoidable!`;
                         };
                     };
                 });
