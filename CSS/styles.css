@@ -11,6 +11,9 @@ body {
     align-items: center;
     border: blue;
     border-style: solid;
+    border-radius: 25px;
+    padding: 25px;
+    margin-top: 5%;
 }
 
 .scoreBox {
@@ -20,6 +23,7 @@ body {
     flex: 1;
     border: blue;
     border-style: solid;
+    background-color: lavender;
 }
 
 .score {
@@ -27,23 +31,54 @@ body {
     padding: 5px;
     border: blue;
     border-style: solid;
+    background-color: white;
 }
 
 .messageBox{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
+}
+
+#message {
+    margin-bottom: 10px;
 }
 
 .choices {
     display: flex;
+    padding: 1px;
+    margin: 1px;
 }
 
 .imgBox {
     display: flex;
+    flex: 1;
+    padding: 5px;
+    margin: 5px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.textBox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+p {
+    margin: 2px;
+}
+
+button {
+    margin-top: 10%;
+    height: 200px;
+    margin-bottom: 10%;
 }
 
 img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 180px;
+    max-height: 180px;
+    display: flex;
 }
