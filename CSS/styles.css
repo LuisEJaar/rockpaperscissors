@@ -1,0 +1,49 @@
+body {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex: auto;
+}
+
+.gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: blue;
+    border-style: solid;
+}
+
+.scoreBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border: blue;
+    border-style: solid;
+}
+
+.score {
+    margin: 5px;
+    padding: 5px;
+    border: blue;
+    border-style: solid;
+}
+
+.messageBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choices {
+    display: flex;
+}
+
+.imgBox {
+    display: flex;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+}

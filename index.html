@@ -9,6 +9,7 @@
               margin: 10px 1px 0;
             }
           </style>
+          <link rel="stylesheet" href="CSS/styles.css">
     </head>
     
     <body>
@@ -16,15 +17,17 @@
         <!--Overall box-->
         <div class="gameContainer">       
             <!--Title box-->
-            <div class="titleBox">You dare challenge me?</div>
+            <div class="titleBox">
+                <h1>You dare challenge me?</h1>
+            </div>
             <!--Score Box-->
             <div class="scoreBox">
                 <!--LH Score: Player-->
-                <div class="playerScore">
+                <div class="score">
                     <p id="playerWins"></p>
                 </div>
                 <!--RH Score: Computer-->
-                <div class="cpScore">
+                <div class="score">
                     <p id="computerWins"></p>
                 </div>
             </div>
@@ -34,14 +37,14 @@
             </div>
             <!--Choice Box-->
             <div class="choices">
-                <div class="rock">
-                    <button id="rock"><img class= "rock" src="/home/luisjaar/Git_Repositories/java_fundamentals/rockpaperscissors/images/rock.webp" alt="Should be a rock"></button>
+                <div class="imgBox">
+                    <button id="rock"><img class= "rock" src="images/rock.webp" alt="Should be a rock"></button>
                 </div>
-                <div class="paper">
-                    <button id="paper"><img src="/home/luisjaar/Git_Repositories/java_fundamentals/rockpaperscissors/images/paper.webp" alt="Should be paper"></button>
+                <div class="imgBox">
+                    <button id="paper"><img src="images/paper.webp" alt="Should be paper"></button>
                 </div>
-                <div class="scissors">
-                    <button id="scissors"><img src="/home/luisjaar/Git_Repositories/java_fundamentals/rockpaperscissors/images/scissors.webp" alt="Should be a scissors"></button>
+                <div class="imgBox">
+                    <button id="scissors"><img src="images/scissors.webp" alt="Should be a scissors"></button>
                 </div>
             </div>
         </div>
@@ -74,15 +77,12 @@
             (playerEntry === 'scissors' && computerSelection === 'paper')||
             (playerEntry === 'paper' && computerSelection === 'rock')) {
                 document.getElementById("message").innerHTML = "You Win! " + playerEntry + " beats " + computerSelection + "!";
-                console.log("You Win! " + playerEntry + " beats " + computerSelection + "!")
                 return 'You win';
             } else if (playerEntry === computerSelection){
                 document.getElementById("message").innerHTML = "Its a draw!";
-                console.log("Its a draw!")
                 return 'A draw';
             } else {
                 document.getElementById("message").innerHTML = "You Lose! " + computerSelection + " beats " + playerEntry + "!";
-                console.log("You Lose! " + computerSelection + " beats " + playerEntry + "!")
                 return 'My win';
             }
         }
@@ -105,7 +105,7 @@
                     console.log(button.id);
                     let playerSelection = button.id;
 
-                    //move computer selection to inside  event so it generates each time
+                    //moved computer selection to inside  event so it generates each time
                     const computerSelection = computerPlay();
 
                     // Calling the round function
@@ -136,6 +136,8 @@
         }
 
         game();
+
+        //Should make a new button with an event listener to reset values and launch the game.
     </script>
 
 </html>
